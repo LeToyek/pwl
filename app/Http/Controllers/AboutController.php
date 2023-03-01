@@ -8,6 +8,6 @@ class AboutController extends Controller
 {
     //
     function index(){
-        return "NIM\t: 2141720085 | Nama\t: Maulana Arif Wijaya";
+        return view('pwl_3.about-us');
     }
 }

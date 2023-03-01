@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     //
     function index(){
-        return view('beranda');
+        return view('pwl_3.home');
     }
    
     

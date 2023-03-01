@@ -8,6 +8,6 @@ class NewsController extends Controller
 {
     //
     function index($id){
-        return "News page with id ".$id;
+        return view('pwl_3.news', ['id' => $id]);
     }
 }

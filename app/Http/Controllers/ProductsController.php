@@ -9,7 +9,7 @@ class ProductsController extends Controller
     //
     public function index()
     {
-        return "category page";
+        return view('pwl_3.product');
     }
 
     public function marbel_edu_games()
