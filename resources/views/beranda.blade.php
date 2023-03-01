@@ -1,6 +1,12 @@
 @extends('layouts.template',["title" => "beranda"])
 @section('content')
-  
+@push('custom_css')
+    <style>
+      h1{
+        font-weight: bold;
+      }
+    </style>
+@endpush
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
