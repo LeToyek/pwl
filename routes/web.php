@@ -27,6 +27,8 @@ Route::get('/',[HomeController::class,'index']);
 Route::get('/profile',[ProfileController::class,'index']);
 Route::get('/college',[CollegeController::class,'index']);
 
+Route::get("/articles",[ArticleController::class,'index']);
+
 // Route::get('/',[HomeController::class,'index']);
 // Route::prefix('category')->group(function (){
 //     Route::get('/marbel-edu-games', [ProductsController::class, 'marbel_edu_games']);
