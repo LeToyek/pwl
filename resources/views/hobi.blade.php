@@ -1,4 +1,4 @@
-@extends('layouts.template', ['title' => 'article'])
+@extends('layouts.template', ['title' => 'hobi'])
 @section('content')
     @push('custom_css')
         <style>
@@ -7,18 +7,18 @@
             }
         </style>
     @endpush
-    <div class="content-wrapper">
+    <div class="content-wrapper pb-1">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Articles</h1>
+                        <h1>Hobi</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Articles</li>
+                            <li class="breadcrumb-item active">Hobi</li>
                         </ol>
                     </div>
                 </div>
@@ -26,12 +26,12 @@
         </section>
 
         <!-- Main content -->
-        <section class="content">
+        <section class="content justify-content-center d-flex">
 
             <!-- Default box -->
-            <div class="card card-warning">
+            <div class="card col-md-4">
                 <div class="card-header">
-                    <h3 class="card-title">📰 Articles Data</h3>
+                    <h3 class="card-title">🎨 Data Hobi </h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -48,21 +48,15 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Judul</th>
-                                    <th scope="col">Penulis</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Tahun Terbit</th>
+                                    <th scope="col">Nama</th>
                                 </tr>
                             </thead>
                             <tbody>
-                              
-                                @foreach ($data as $no => $d)
+
+                                @foreach ($hobbies as $no => $hobby)
                                     <tr class="">
                                         <td scope="row">{{ $no + 1 }}</td>
-                                        <td >{{ $d->title }}</td>
-                                        <td>{{ $d->author }}</td>
-                                        <td>{{ $d->category }}</td>
-                                        <td>{{ $d->tahun_terbit }}</td>
+                                        <td >{{ $hobby->nama }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -71,8 +65,8 @@
 
                 </div>
                 <!-- /.card-body -->
-                <div class="card-footer">
-                    saya 💖 Pemrograman Web Lanjut
+                <div class="card-footer bg-white border-top d-flex justify-content-center">
+                    Saya 💖 Pemrograman Web Lanjut
                 </div>
                 <!-- /.card-footer-->
             </div>

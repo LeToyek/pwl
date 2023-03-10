@@ -69,6 +69,30 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/hobi" class="nav-link {{ $title == 'hobi'? 'active' : '' }}"">
+                        <i class="nav-icon fas fa-brush"></i>
+                        <p>
+                            Hobi
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/keluarga" class="nav-link {{ $title == 'keluarga'? 'active' : '' }}"">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Keluarga
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/mata_kuliah" class="nav-link {{ $title == 'matkul'? 'active' : '' }}"">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Mata Kuliah
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -1,4 +1,4 @@
-@extends('layouts.template', ['title' => 'article'])
+@extends('layouts.template', ['title' => 'keluarga'])
 @section('content')
     @push('custom_css')
         <style>
@@ -13,12 +13,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Articles</h1>
+                        <h1>Keluarga<h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Articles</li>
+                            <li class="breadcrumb-item active">/ Keluarga<li>
                         </ol>
                     </div>
                 </div>
@@ -29,9 +29,9 @@
         <section class="content">
 
             <!-- Default box -->
-            <div class="card card-warning">
+            <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title">📰 Articles Data</h3>
+                    <h3 class="card-title">😀 Data Keluarga </h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -48,21 +48,25 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Judul</th>
-                                    <th scope="col">Penulis</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Tahun Terbit</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Hubungan</th>
+                                    <th scope="col">Jenis Kelamin</th>
+                                    <th scope="col">Pekerjaan</th>
+                                    <th scope="col">Alamat</th>
+                                    <th scope="col">Tanggal Lahir</th>
                                 </tr>
                             </thead>
                             <tbody>
                               
-                                @foreach ($data as $no => $d)
+                                @foreach ($keluarga as $no => $k)
                                     <tr class="">
                                         <td scope="row">{{ $no + 1 }}</td>
-                                        <td >{{ $d->title }}</td>
-                                        <td>{{ $d->author }}</td>
-                                        <td>{{ $d->category }}</td>
-                                        <td>{{ $d->tahun_terbit }}</td>
+                                        <td>{{ $k->nama }}</td>
+                                        <td>{{ $k->hubungan }}</td>
+                                        <td>{{ $k->jk }}</td>
+                                        <td>{{ $k->pekerjaan }}</td>
+                                        <td>{{ $k->alamat }}</td>
+                                        <td>{{ $k->tanggal_lahir }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -72,7 +76,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    saya 💖 Pemrograman Web Lanjut
+                    Saya 💖 Pemrograman Web Lanjut
                 </div>
                 <!-- /.card-footer-->
             </div>

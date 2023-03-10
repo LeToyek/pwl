@@ -4,7 +4,10 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HobiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KeluargaController;
+use App\Http\Controllers\MataKuliahController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductsController;
@@ -28,6 +31,9 @@ Route::get('/profile',[ProfileController::class,'index']);
 Route::get('/college',[CollegeController::class,'index']);
 
 Route::get("/articles",[ArticleController::class,'index']);
+Route::get("/hobi",[HobiController::class,'index']);
+Route::get("/keluarga",[KeluargaController::class,'index']);
+Route::get("/mata_kuliah",[MataKuliahController::class,'index']);
 
 // Route::get('/',[HomeController::class,'index']);
 // Route::prefix('category')->group(function (){
