@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HobiController;
@@ -26,14 +27,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class,'index']);
-Route::get('/profile',[ProfileController::class,'index']);
-Route::get('/college',[CollegeController::class,'index']);
-
-Route::get("/articles",[ArticleController::class,'index']);
-Route::get("/hobi",[HobiController::class,'index']);
-Route::get("/keluarga",[KeluargaController::class,'index']);
-Route::get("/mata_kuliah",[MataKuliahController::class,'index']);
 
 // Route::get('/',[HomeController::class,'index']);
 // Route::prefix('category')->group(function (){
@@ -52,3 +45,16 @@ Route::get("/mata_kuliah",[MataKuliahController::class,'index']);
 // });
 // Route::get("/about-us",[AboutController::class,"index"]);
 // Route::resource("/contact-us",ContactController::class)->only(["index","store"]);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout', [LoginController::class, 'logout']);
+Route::middleware(['auth'])->group(function () {
+  Route::get('/', [HomeController::class, 'index']);
+  Route::get('/profile', [ProfileController::class, 'index']);
+  Route::get('/college', [CollegeController::class, 'index']);
+  Route::get("/articles", [ArticleController::class, 'index']);
+  Route::get("/hobi", [HobiController::class, 'index']);
+  Route::get("/keluarga", [KeluargaController::class, 'index']);
+  Route::get("/mata_kuliah", [MataKuliahController::class, 'index']);
+});
