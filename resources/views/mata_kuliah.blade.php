@@ -5,6 +5,22 @@
             h1 {
                 font-weight: bold;
             }
+            .asek{
+                animation: dugem;
+                transition: .2s ease-in
+            }
+
+            @keyframes dugem {
+                0%  {
+                    background-color: blue
+                }
+                50% {
+                    background-color: brown
+                }
+                100% {
+                    background-color: aquamarine
+                }
+            }
         </style>
     @endpush
     <div class="content-wrapper pb-2">
@@ -26,7 +42,7 @@
         </section>
 
         <!-- Main content -->
-        <section class="content">
+        <section class="content asek">
 
             <!-- Default box -->
             <div class="card card-danger">

@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HobiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KeluargaController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MataKuliahController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
@@ -57,4 +58,5 @@ Route::middleware(['auth'])->group(function () {
   Route::get("/hobi", [HobiController::class, 'index']);
   Route::get("/keluarga", [KeluargaController::class, 'index']);
   Route::get("/mata_kuliah", [MataKuliahController::class, 'index']);
+  Route::resource('/mahasiswa', MahasiswaController::class);
 });

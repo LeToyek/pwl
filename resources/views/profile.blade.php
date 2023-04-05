@@ -44,7 +44,7 @@
                         </li>
                     </ul>
 
-                    <a href="https://www.linkedin.com/in/maulana-arif/" class="btn btn-primary btn-block"
+                    <a href="https://www.linkedin.com/in/maulana-arif/" target="_blank" class="btn btn-primary btn-block"
                         style="display: flex; align-items: center; justify-content: center"><i class="fab fa-linkedin"
                             style="font-size: 24px"></i><div style="width: 8px"></div> <b> Follow me on Linkedin</b></a>
                 </div>
