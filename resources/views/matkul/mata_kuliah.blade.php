@@ -5,22 +5,6 @@
             h1 {
                 font-weight: bold;
             }
-            .asek{
-                animation: dugem;
-                transition: .2s ease-in
-            }
-
-            @keyframes dugem {
-                0%  {
-                    background-color: blue
-                }
-                50% {
-                    background-color: brown
-                }
-                100% {
-                    background-color: aquamarine
-                }
-            }
         </style>
     @endpush
     <div class="content-wrapper pb-2">
@@ -42,7 +26,12 @@
         </section>
 
         <!-- Main content -->
-        <section class="content asek">
+        <section class="content">
+            @if (session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
 
             <!-- Default box -->
             <div class="card card-danger">
@@ -59,8 +48,9 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <a href="{{ url('mata_kuliah/create') }}" class="btn btn-sm btn-success my-2">Tambah Data</a>
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
@@ -68,10 +58,11 @@
                                     <th scope="col">Semester</th>
                                     <th scope="col">SKS</th>
                                     <th scope="col">Dosen</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                              
+
                                 @foreach ($matkuls as $no => $mk)
                                     <tr class="">
                                         <td scope="row">{{ $no + 1 }}</td>
@@ -79,7 +70,18 @@
                                         <td>{{ $mk->semester }}</td>
                                         <td>{{ $mk->sks }}</td>
                                         <td>{{ $mk->dosen }}</td>
-                                    </tr>
+                                        <td>
+                                            <div class="row justify-content-center">
+                                                <a href="{{ url('/mata_kuliah/' . $mk->id . '/edit') }}"
+                                                    class="btn btn-sm btn-warning mr-2">edit</a>
+
+                                                <form method="POST" action="{{ url('/mata_kuliah/' . $mk->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                                                </form>
+                                            </div>
+                                        </td>
                                 @endforeach
                             </tbody>
                         </table>
@@ -99,6 +101,5 @@
     </div>
 @endsection
 @push('custom_js')
-    <script>
-    </script>
+    <script></script>
 @endpush

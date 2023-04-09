@@ -10,4 +10,5 @@ class Hobi extends Model
     use HasFactory;
 
     protected $table = "hobi";
+    protected $fillable = ["nama"];
 }

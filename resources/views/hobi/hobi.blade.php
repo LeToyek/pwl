@@ -26,10 +26,15 @@
         </section>
 
         <!-- Main content -->
-        <section class="content justify-content-center d-flex">
+        <section class="content ">
+            @if (session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
 
             <!-- Default box -->
-            <div class="card col-md-4">
+            <div class="card ">
                 <div class="card-header">
                     <h3 class="card-title">🎨 Data Hobi </h3>
 
@@ -43,12 +48,14 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <a href="{{ url('hobi/create') }}" class="btn btn-sm btn-success my-2">Tambah Data</a>
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Nama</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,6 +64,18 @@
                                     <tr class="">
                                         <td scope="row">{{ $no + 1 }}</td>
                                         <td >{{ $hobby->nama }}</td>
+                                        <td>
+                                            <div class="row justify-content-center">
+                                                <a href="{{ url('/hobi/' . $hobby->id . '/edit') }}"
+                                                    class="btn btn-sm btn-warning mr-2">edit</a>
+
+                                                <form method="POST" action="{{ url('/hobi/' . $hobby->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                                                </form>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

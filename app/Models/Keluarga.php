@@ -10,5 +10,13 @@ class Keluarga extends Model
     use HasFactory;
 
     protected $table = "keluarga";
-
+    protected $fillable = [
+        'no',
+        'nama',
+        'hubungan',
+        'jk',
+        'pekerjaan',
+        'alamat',
+        'tanggal_lahir',
+    ];
 }

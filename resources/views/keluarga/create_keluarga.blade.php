@@ -1,0 +1,112 @@
+@extends('layouts.template', ['title' => 'keluarga'])
+@section('content')
+    @push('custom_css')
+        <style>
+            h1 {
+                font-weight: bold;
+            }
+        </style>
+    @endpush
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Keluarga</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Keluarga</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card card-warning">
+                <div class="card-header">
+                    <h3 class="card-title">📰 Keluarga Data</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+
+                    <form method="POST" action="{{ $url_form }}">
+                        @csrf
+                        {!! isset($keluarga) ? method_field('PUT') : ""!!}
+
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input class="form-control @error('nama') is-invalid @enderror"
+                                value="{{ isset($keluarga) ? $keluarga->nama : old('nama') }}" name="nama" type="text" />
+                            @error('nama')
+                                <span class="error invalid-feedback">{{ $message }} </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Hubungan</label>
+                            <input class="form-control @error('hubungan') is-invalid @enderror"
+                                value="{{ isset($keluarga) ? $keluarga->hubungan : old('hubungan') }}" name="hubungan" type="text" />
+                            @error('hubungan')
+                                <span class="error invalid-feedback">{{ $message }} </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Jenis Kelamin</label>
+                            <input class="form-control @error('jk') is-invalid @enderror"
+                            value="{{ isset($keluarga) ? $keluarga->jk : old('jk') }}" name="jk" type="text" />
+                            @error('jk')
+                            <span class="error invalid-feedback">{{ $message }} </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>pekerjaan</label>
+                            <input class="form-control @error('pekerjaan') is-invalid @enderror"
+                                value="{{ isset($keluarga) ? $keluarga->pekerjaan : old('pekerjaan') }}" name="pekerjaan" type="text" />
+                            @error('pekerjaan')
+                                <span class="error invalid-feedback">{{ $message }} </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>alamat</label>
+                            <input class="form-control @error('alamat') is-invalid @enderror"
+                                value="{{ isset($keluarga) ? $keluarga->alamat : old('alamat') }}" name="alamat" type="text" />
+                            @error('alamat')
+                                <span class="error invalid-feedback">{{ $message }} </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Lahir</label>
+                            <input class="form-control @error('tanggal_lahir') is-invalid @enderror"
+                                value="{{ isset($keluarga) ? $keluarga->tanggal_lahir : old('tanggal_lahir') }}" name="tanggal_lahir" type="text" />
+                            @error('tanggal_lahir')
+                                <span class="error invalid-feedback">{{ $message }} </span>
+                            @enderror
+                        </div>
+                        
+                        <button type="submit" class="btn btn-info">Simpan</button>
+                        <!-- /.card-footer-->
+                </div>
+                <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+@endsection
+@push('custom_js')
+    <script></script>
+@endpush

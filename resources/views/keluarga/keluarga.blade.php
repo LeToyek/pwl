@@ -27,7 +27,11 @@
 
         <!-- Main content -->
         <section class="content">
-
+            @if (session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
             <!-- Default box -->
             <div class="card card-success">
                 <div class="card-header">
@@ -43,8 +47,9 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <a href="{{ url('keluarga/create') }}" class="btn btn-sm btn-success my-2">Tambah Data</a>
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
@@ -54,6 +59,7 @@
                                     <th scope="col">Pekerjaan</th>
                                     <th scope="col">Alamat</th>
                                     <th scope="col">Tanggal Lahir</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,6 +73,18 @@
                                         <td>{{ $k->pekerjaan }}</td>
                                         <td>{{ $k->alamat }}</td>
                                         <td>{{ $k->tanggal_lahir }}</td>
+                                        <td>
+                                            <div class="row justify-content-center">
+                                                <a href="{{ url('/keluarga/' . $k->id . '/edit') }}"
+                                                    class="btn btn-sm btn-warning mr-2">edit</a>
+
+                                                <form method="POST" action="{{ url('/keluarga/' . $k->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                                                </form>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
