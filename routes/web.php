@@ -11,6 +11,7 @@ use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MataKuliahController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
@@ -55,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/profile', [ProfileController::class, 'index']);
   Route::get('/college', [CollegeController::class, 'index']);
   Route::get("/articles", [ArticleController::class, 'index']);
+  Route::get("/mahasiswa/nilai/{id}", [NilaiController::class, 'show']);
   Route::resource("/keluarga", KeluargaController::class);
   Route::resource("/hobi", HobiController::class);
   Route::resource("/mata_kuliah", MataKuliahController::class);

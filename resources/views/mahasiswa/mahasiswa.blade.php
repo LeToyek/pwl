@@ -66,7 +66,7 @@
                         </thead>
                         <tbody>
                             @if ($mahasiswa->count() > 0)
-                                @foreach ($paginate as $m )
+                                @foreach ($paginate as $m)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $m->nim }}</td>
@@ -77,7 +77,7 @@
                                         <td>
                                             <!-- Bikin tombol edit dan delete -->
                                             <div class="row justify-content-center">
-                                                <a href="{{ url('/mahasiswa/' . $m->nim ) }}"
+                                                <a href="{{ url('/mahasiswa/' . $m->nim) }}"
                                                     class="btn btn-sm btn-info mr-2">Show</a>
                                                 <a href="{{ url('/mahasiswa/' . $m->id . '/edit') }}"
                                                     class="btn btn-sm btn-warning mr-2">Edit</a>
@@ -85,8 +85,10 @@
                                                 <form method="POST" action="{{ url('/mahasiswa/' . $m->id) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                                 </form>
+                                                <a href="{{ url('/mahasiswa' .'/nilai/'. $m->id  ) }}"
+                                                    class="btn btn-sm btn-primary ml-2">Nilai</a>
                                             </div>
                                         </td>
                                     </tr>
