@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("alamat")->nullable();
             $table->string("hp",15)->nullable();
             $table->timestamps();
+
         });
     }
 
