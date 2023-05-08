@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::table('mahasiswa', function (Blueprint $table) {
-            $table->dropColumn('kelas');
-            $table->unsignedBigInteger('kelas_id')->nullable();
-            $table->foreign('kelas_id')->references('id')->on('kelas');
-        }); 
+        // Schema::table('mahasiswa', function (Blueprint $table) {
+        //     $table->dropColumn('kelas');
+        //     $table->unsignedBigInteger('kelas_id')->nullable();
+        //     $table->foreign('kelas_id')->references('id')->on('kelas');
+        // }); 
     }
 
     /**
