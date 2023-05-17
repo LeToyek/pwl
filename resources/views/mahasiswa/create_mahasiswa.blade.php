@@ -45,7 +45,7 @@
 
                 <div class="card-body">
 
-                    <form method="POST" action="{{ $url_form }}">
+                    <form method="POST" action="{{ $url_form }}" enctype="multipart/form-data">
                         @csrf
                         {!! isset($mhs) ? method_field('PUT') : '' !!}
 
@@ -73,6 +73,8 @@
                                 <span class="error invalid-feedback">{{ $message }} </span>
                             @enderror
                         </div>
+                        <label for="image">Foto</label>
+                        <input type="file" class="form-control" name="image"></br>
                         <div class="row ">
                             <div class="col form-group">
                                 <label>Tempat Lahir</label>

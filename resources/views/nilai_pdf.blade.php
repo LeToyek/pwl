@@ -41,7 +41,7 @@
                 <td>{{ $mahasiswa->kelas->nama_kelas }}</td>
             </tr>
         </table>
-        <table class="table table-striped table-bordered" >
+        <table class="table table-bordered" >
             <thead>
                 <tr>
                     <td><b>Mata Kuliah</b></td>
@@ -61,9 +61,6 @@
             </tbody>
             @endforeach
         </table>
-        <a class="btn btn-large btn-danger" href={{ "F/mahasiswa/nilai/".$mahasiswa->id."/pdf" }}>
-            Cetak ke PDF 
-        </a>
     </div>
 </body>
 </html>

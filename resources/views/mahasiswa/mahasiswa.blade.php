@@ -59,6 +59,7 @@
                                 <th>NIM</th>
                                 <th>Nama</th>
                                 <th>JK</th>
+                                <th>Foto</th>
                                 <th>Nama Kelas</th>
                                 <th>HP</th>
                                 <th>Action</th>
@@ -72,6 +73,12 @@
                                         <td>{{ $m->nim }}</td>
                                         <td>{{ $m->nama }}</td>
                                         <td>{{ $m->jk }}</td>
+                                        <td>
+                                            <div class="" style="width: 100px;height: 100px;overflow: hidden;">
+                                                <img src="{{ asset('storage/' . $m->foto) }}" width="100%" height="auto"
+                                                    alt="foto mahasiswa">
+                                            </div>
+                                        </td>
                                         <td>{{ $m->kelas->nama_kelas }}</td>
                                         <td>{{ $m->hp }}</td>
                                         <td>
@@ -81,13 +88,12 @@
                                                     class="btn btn-sm btn-info mr-2">Show</a>
                                                 <a href="{{ url('/mahasiswa/' . $m->id . '/edit') }}"
                                                     class="btn btn-sm btn-warning mr-2">Edit</a>
-
                                                 <form method="POST" action="{{ url('/mahasiswa/' . $m->id) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                                 </form>
-                                                <a href="{{ url('/mahasiswa' .'/nilai/'. $m->id  ) }}"
+                                                <a href="{{ url('/mahasiswa' . '/nilai/' . $m->id) }}"
                                                     class="btn btn-sm btn-primary ml-2">Nilai</a>
                                             </div>
                                         </td>

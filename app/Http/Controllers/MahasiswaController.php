@@ -48,6 +48,10 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         //
+        if ($request->file('image')) {
+            
+            $image_name = $request->file('image')->store('images', 'public');
+        }
         $request->validate([
             'nim' => 'required|string|max:10|unique:mahasiswa,nim',
             'nama' => 'required|string|max:50',
@@ -57,11 +61,12 @@ class MahasiswaController extends Controller
             'alamat' => 'required|string|max:255',
             'hp' => 'required|digits_between:6,15'
         ]);
-         
+        
         $data = new MahasiswaModel();
         $data->nim = $request->nim;
         $data->nama = $request->nama;
         $data->jk = $request->jk;
+        $data->foto = $image_name;
         $data->tempat_lahir = $request->tempat_lahir;
         $data->tanggal_lahir = $request->tanggal_lahir;
         $data->alamat = $request->alamat;
@@ -117,6 +122,7 @@ class MahasiswaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
         $request->validate([
             'nim' => 'required|string|max:10|unique:mahasiswa,nim,' . $id,
             'nama' => 'required|string|max:50',
@@ -126,7 +132,24 @@ class MahasiswaController extends Controller
             'alamat' => 'required|string|max:255',
             'hp' => 'required|digits_between:6,15'
         ]);
-        $data = MahasiswaModel::where("id", "=", $id)->update($request->except(["_token", "_method"]));
+
+        $data = MahasiswaModel::where("id", "=", $id)->first();
+        if ($data->foto && file_exists(storage_path('app/public/' . $data->foto))) {
+            # code...
+            \Storage::delete('public/' . $data->logo);
+        }
+        $image_name = $request->file('image')->store('images', 'public');
+        $data->update([
+            'nim' => $request->nim,
+            'nama' => $request->nama,
+            'jk' => $request->jk,
+            'foto' => $image_name,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'alamat' => $request->alamat,
+            'hp' => $request->hp,
+            'kelas_id' => $request->kelas_id
+        ]);
         return redirect("mahasiswa")->with("success", "Mahasiswa Berhasil diedit");
     }
 
@@ -139,7 +162,9 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         //
-        MahasiswaModel::where("id", "=", $id)->delete();
+        $mhs = MahasiswaModel::where("id", "=", $id)->first();
+        $mhs->matakuliahs()->detach();
+        $mhs->delete();
         return redirect("mahasiswa")->with("success", "Mahasiswa Berhasil dihapus");
     }
 }

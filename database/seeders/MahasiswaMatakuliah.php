@@ -17,67 +17,43 @@ class MahasiswaMatakuliah extends Seeder
     {
         DB::table('mahasiswa_matakuliah')->insert([
             [
-                'mahasiswa_nim' => '2141720085',
+                'mahasiswa_nim' => '2141720099',
                 'matakuliah_id' => 1,
                 'nilai' => 'A'
             ],
             [
-                'mahasiswa_nim' => '2141720085',
+                'mahasiswa_nim' => '2141720099',
                 'matakuliah_id' => 2,
                 'nilai' => 'A+'
             ],
             [
-                'mahasiswa_nim' => '2141720085',
+                'mahasiswa_nim' => '2141720099',
                 'matakuliah_id' => 3,
                 'nilai' => 'B'
             ],
             [
-                'mahasiswa_nim' => '2141720085',
+                'mahasiswa_nim' => '2141720099',
                 'matakuliah_id' => 4,
                 'nilai' => 'A'
             ],
             [
-                'mahasiswa_nim' => '2141720085',
+                'mahasiswa_nim' => '2141720099',
                 'matakuliah_id' => 5,
                 'nilai' => 'B'
             ],
+            
             [
-                'mahasiswa_nim' => '2141720100',
+                'mahasiswa_nim' => '2141720099',
                 'matakuliah_id' => 1,
                 'nilai' => 'B'
             ],
             [
-                'mahasiswa_nim' => '2141720100',
-                'matakuliah_id' => 2,
-                'nilai' => 'A'
-            ],
-            [
-                'mahasiswa_nim' => '2141720100',
-                'matakuliah_id' => 3,
-                'nilai' => 'C'
-            ],
-            [
-                'mahasiswa_nim' => '2141720100',
-                'matakuliah_id' => 4,
-                'nilai' => 'A'
-            ],
-            [
-                'mahasiswa_nim' => '2141720100',
-                'matakuliah_id' => 5,
-                'nilai' => 'A'
-            ],
-            [
-                'mahasiswa_nim' => '2141720085',
-                'matakuliah_id' => 1,
-                'nilai' => 'B'
-            ],
-            [
-                'mahasiswa_nim' => '2141720085',
+                'mahasiswa_nim' => '2141720099',
                 'matakuliah_id' => 2,
                 'nilai' => 'B'
             ],
             [
-                'mahasiswa_nim' => '2141720085',
+                'mahasiswa_nim' => '2141720099',
                 'matakuliah_id' => 3,
                 'nilai' => 'B'
             ]

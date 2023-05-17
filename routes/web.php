@@ -55,10 +55,12 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/', [HomeController::class, 'index']);
   Route::get('/profile', [ProfileController::class, 'index']);
   Route::get('/college', [CollegeController::class, 'index']);
-  Route::get("/articles", [ArticleController::class, 'index']);
   Route::get("/mahasiswa/nilai/{id}", [NilaiController::class, 'show']);
+  Route::get("/mahasiswa/nilai/{id}/pdf", [NilaiController::class, 'show_pdf']);
+  Route::resource("/articles", ArticleController::class);
   Route::resource("/keluarga", KeluargaController::class);
   Route::resource("/hobi", HobiController::class);
   Route::resource("/mata_kuliah", MataKuliahController::class);
   Route::resource('/mahasiswa', MahasiswaController::class);
 });
+Route::get('/article/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
