@@ -50,8 +50,10 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Judul</th>
                                     <th scope="col">Penulis</th>
+                                
                                     <th scope="col">Category</th>
                                     <th scope="col">Tahun Terbit</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,6 +65,15 @@
                                         <td>{{ $d->author }}</td>
                                         <td>{{ $d->category }}</td>
                                         <td>{{ $d->tahun_terbit }}</td>
+                                        <td>
+                                            <a href="/articles/{{ $d->id }}" class="btn btn-sm btn-info">Detail</a>
+                                            <a href="/articles/{{ $d->id }}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                            <form action="/articles/{{ $d->id }}" method="post" class="d-inline">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Are you sure?')">Delete</button>
+                                            </form>
                                     </tr>
                                 @endforeach
                             </tbody>
