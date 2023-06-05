@@ -62,5 +62,6 @@ Route::middleware(['auth'])->group(function () {
   Route::resource("/hobi", HobiController::class);
   Route::resource("/mata_kuliah", MataKuliahController::class);
   Route::resource('/mahasiswa', MahasiswaController::class);
+  Route::post('/mahasiswa/data',[MahasiswaController::class,'data']);
 });
 Route::get('/article/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
